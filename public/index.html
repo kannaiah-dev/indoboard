@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indoboard — Secure Digital Teaching Whiteboard</title>
 
+  <!-- Cache control/cache busting headers -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com/3.4.1"></script>
 
@@ -3075,6 +3080,9 @@ service firebase.storage {
 
     // Show the Teacher Dashboard overlay
     function showTeacherDashboard() {
+      const searchBox = document.getElementById('dashboard-search');
+      if (searchBox) searchBox.value = '';
+
       const dash = document.getElementById('teacher-dashboard');
       if (!dash) return;
       // Update greeting name
@@ -4758,33 +4766,52 @@ service firebase.storage {
     }
 
     // Render premium Teacher Dashboard lesson cards
-    function renderTeacherDashboard() {
+    function renderTeacherDashboard(filterText = '') {
       const grid = document.getElementById('dashboard-lessons-grid');
       const empty = document.getElementById('dashboard-empty-state');
-      const searchInput = document.getElementById('dashboard-search');
       if (!grid) return;
 
       // Sync teacher name in case dashboard was shown before name loaded
       const nameEl = document.getElementById('dashboard-teacher-name');
       if (nameEl) nameEl.innerText = teacherSession.name || 'Teacher';
 
-      const searchQ = searchInput ? searchInput.value.toLowerCase().trim() : '';
-      const activeLessons = currentLessonsCatalog.filter(l => {
-        if (l.archived || l.status === 'archived') return false;
-        if (!searchQ) return true;
-        const haystack = [l.lessonName, l.lessonTitle, l.className, l.subjectName, l.chapter].join(' ').toLowerCase();
-        return haystack.includes(searchQ);
-      });
-
-      grid.innerHTML = '';
+      const activeLessons = currentLessonsCatalog.filter(l => !(l.archived || l.status === 'archived'));
 
       if (activeLessons.length === 0) {
+        grid.innerHTML = '';
         if (empty) empty.classList.remove('hidden');
         return;
       }
       if (empty) empty.classList.add('hidden');
 
-      activeLessons.forEach(l => {
+      const query = filterText.trim().toLowerCase();
+      const filteredLessons = query === '' ? activeLessons : activeLessons.filter(l => {
+        return (
+          (l.lessonTitle || l.lessonName || l.title || '').toLowerCase().includes(query) ||
+          (l.className || l.classNameLegacy || l.class || '').toLowerCase().includes(query) ||
+          (l.subjectName || l.subjectNameLegacy || l.subject || '').toLowerCase().includes(query) ||
+          (l.chapter || '').toLowerCase().includes(query)
+        );
+      });
+
+      grid.innerHTML = '';
+
+      if (filteredLessons.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+            <span class="material-symbols-outlined text-4xl text-slate-300 mb-3">
+              search_off
+            </span>
+            <p class="text-sm font-semibold text-slate-500">No lessons found</p>
+            <p class="text-xs text-slate-400 mt-1">
+              No lessons found matching your search. Try a different search term
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredLessons.forEach(l => {
         const title     = l.lessonName || l.lessonTitle || 'Untitled Lesson';
         const cls       = l.className  || l.classNameLegacy  || '—';
         const subj      = l.subjectName || l.subjectNameLegacy || '—';
@@ -6927,7 +6954,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       const dashSearch = document.getElementById('dashboard-search');
       if (dashSearch) {
         dashSearch.addEventListener('input', () => {
-          if (typeof renderTeacherDashboard === 'function') renderTeacherDashboard();
+          if (typeof renderTeacherDashboard === 'function') renderTeacherDashboard(dashSearch.value);
         });
       }
 
