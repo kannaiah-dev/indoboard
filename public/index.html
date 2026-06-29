@@ -200,6 +200,7 @@
     </div>
   </div>
 
+  <div id="whiteboard-screen" class="flex flex-col h-screen">
   <!-- HEADER -->
   <header id="header" class="h-14 md:h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 select-none shrink-0 z-30">
     <div class="flex items-center gap-3">
@@ -476,10 +477,11 @@
 
     </div>
   </footer>
+  </div>
 
   <!-- LEFT NAVIGATION DRAWER -->
-  <div id="drawer-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 hidden transition-opacity duration-300 opacity-0"></div>
-  <aside id="menu-drawer" class="fixed top-0 left-0 bottom-0 w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+  <div id="drawer-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-[190] hidden transition-opacity duration-300 opacity-0"></div>
+  <aside id="menu-drawer" class="fixed top-0 left-0 bottom-0 w-80 bg-white shadow-2xl z-[200] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
     <!-- Drawer Header -->
     <div class="p-5 border-b border-slate-200 flex items-center justify-between">
       <div class="flex items-center gap-2">
@@ -591,7 +593,7 @@
 
   <!-- PALE OVERLAY POPUPS (Toggled inline) -->
   <!-- 1. Color Palette Popup -->
-  <div id="color-palette-popup" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-40 hidden max-w-sm w-80 animate-fade-in">
+  <div id="color-palette-popup" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-[200] hidden max-w-sm w-80 animate-fade-in">
     <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
       <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Pen Colors</span>
       <button onclick="toggleColorPopup()" class="text-slate-400 hover:text-slate-600 text-sm font-extrabold">×</button>
@@ -613,7 +615,7 @@
   </div>
 
   <!-- 2. Eraser Size Popup -->
-  <div id="eraser-popup" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-40 hidden w-64 animate-fade-in">
+  <div id="eraser-popup" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-[200] hidden w-64 animate-fade-in">
     <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
       <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Eraser settings</span>
       <button onclick="toggleEraserPopup()" class="text-slate-400 hover:text-slate-600 text-sm font-extrabold">×</button>
@@ -637,7 +639,7 @@
   </div>
 
   <!-- 3. Toolbox Popup -->
-  <div id="toolbox-popup" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-40 hidden max-w-sm w-76 animate-fade-in">
+  <div id="toolbox-popup" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-[200] hidden max-w-sm w-76 animate-fade-in">
     <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
       <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Teacher Instruments</span>
       <button onclick="toggleToolbox()" class="text-slate-400 hover:text-slate-600 text-sm font-extrabold">×</button>
@@ -675,7 +677,7 @@
   </div>
 
   <!-- 4. Pages Panel -->
-  <div id="pages-panel" class="fixed bottom-20 right-4 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-40 hidden max-w-sm w-80 max-h-[400px] overflow-y-auto animate-fade-in flex flex-col">
+  <div id="pages-panel" class="fixed bottom-20 right-4 bg-white rounded-2xl shadow-2xl border border-slate-200 p-4 z-[200] hidden max-w-sm w-80 max-h-[400px] overflow-y-auto animate-fade-in flex flex-col">
     <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
       <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Lesson Slides</span>
       <button onclick="togglePagesPanel()" class="text-slate-400 hover:text-slate-600 text-sm font-extrabold">×</button>
@@ -769,7 +771,7 @@
   </div>
 
   <!-- LESSON SELECT WIZARD MODAL -->
-  <div id="lesson-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-40 hidden">
+  <div id="lesson-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-[200] hidden">
     <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col border border-slate-200">
       
       <!-- Modal Header -->
@@ -1050,7 +1052,7 @@ service firebase.storage {
   </div>
 
   <!-- LOCAL ACCOUNTS MIGRATION MODAL -->
-  <div id="migration-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[70] hidden animate-fade-in">
+  <div id="migration-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[200] hidden animate-fade-in">
     <div class="bg-slate-900 text-slate-100 rounded-2xl shadow-2xl w-full max-w-xl max-h-[85vh] overflow-hidden flex flex-col border border-slate-700">
       
       <!-- Modal Header -->
@@ -1093,7 +1095,7 @@ service firebase.storage {
   </div>
 
   <!-- TEACHER EDIT/CREATE MODAL -->
-  <div id="teacher-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[70] hidden animate-fade-in">
+  <div id="teacher-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[200] hidden animate-fade-in">
     <div class="bg-slate-900 text-slate-100 rounded-2xl shadow-2xl w-full max-w-md max-h-[85vh] overflow-hidden flex flex-col border border-slate-700 animate-scale-in">
       <!-- Modal Header -->
       <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
@@ -1144,7 +1146,7 @@ service firebase.storage {
   </div>
 
   <!-- ASSIGNMENT MODAL -->
-  <div id="assignment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[70] hidden animate-fade-in">
+  <div id="assignment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[200] hidden animate-fade-in">
     <div class="bg-slate-900 text-slate-100 rounded-2xl shadow-2xl w-full max-w-lg max-h-[85vh] overflow-hidden flex flex-col border border-slate-700 animate-scale-in">
       <!-- Modal Header -->
       <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
@@ -1182,7 +1184,7 @@ service firebase.storage {
   </div>
 
   <!-- ADMIN LESSON ADD/EDIT MODAL -->
-  <div id="admin-lesson-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[70] hidden animate-fade-in">
+  <div id="admin-lesson-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 z-[200] hidden animate-fade-in">
     <div class="bg-slate-900 text-slate-100 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden flex flex-col border border-slate-700 animate-scale-in">
       <!-- Modal Header -->
       <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950">
@@ -1342,7 +1344,7 @@ service firebase.storage {
   </div>
 
   <!-- DIAGNOSTIC TEST RUNNER PANEL -->
-  <div id="test-runner-panel" class="fixed top-4 right-4 bg-slate-950 text-slate-100 shadow-2xl rounded-2xl w-80 md:w-96 z-50 border border-slate-800 p-4 hidden flex-col max-h-[90vh]">
+  <div id="test-runner-panel" class="fixed top-4 right-4 bg-slate-950 text-slate-100 shadow-2xl rounded-2xl w-80 md:w-96 z-[205] border border-slate-800 p-4 hidden flex-col max-h-[90vh]">
     <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
       <span class="text-xs font-bold text-slate-400 tracking-wider uppercase flex items-center gap-1.5">
         <span class="material-symbols-outlined text-sm text-red-500 animate-pulse font-extrabold">circle</span> System Diagnostics Test Runner
@@ -1802,6 +1804,26 @@ service firebase.storage {
 
     let currentTheme = { background: '#ffffff', presetName: 'Blank' };
 
+    // ── WhiteboardState: Live accessor object for MenuController.js ──
+    // Uses getters/setters so external scripts can read/write closure vars.
+    window.WhiteboardState = {
+      get currentPageNum() { return currentPageNum; },
+      set currentPageNum(v) { currentPageNum = v; },
+      get totalPages() { return totalPages; },
+      set totalPages(v) { totalPages = v; },
+      get pageAnnotations() { return pageAnnotations; },
+      set pageAnnotations(v) { pageAnnotations = v; },
+      get history() { return history; },
+      set history(v) { history = v; },
+      get historyStep() { return historyStep; },
+      set historyStep(v) { historyStep = v; },
+      get activeLessonId() { return activeLessonId; },
+      set activeLessonId(v) { activeLessonId = v; },
+      get currentTheme() { return currentTheme; },
+      set currentTheme(v) { currentTheme = v; },
+      createBlankPageData: () => createBlankPageData()
+    };
+
     // Canvas References
     const canvas = document.getElementById('drawing-canvas');
     const ctx = canvas.getContext('2d');
@@ -1811,6 +1833,15 @@ service firebase.storage {
     // Offscreen rendering layer
     const offscreenCanvas = document.createElement('canvas');
     const offCtx = offscreenCanvas.getContext('2d');
+
+    // ── Global exports for MenuController.js ──────────────────────
+    // These expose the internal whiteboard state to external scripts
+    window.canvas = canvas;
+    window.ctx = ctx;
+    window.bgLayer = bgLayer;
+    window.bgImage = bgImage;
+    window.offscreenCanvas = offscreenCanvas;
+    window.offCtx = offCtx;
 
     // ----------------------------------------------------
     // 4. CANVAS ENGINE RESIZING & BUFFERING
@@ -2172,7 +2203,7 @@ service firebase.storage {
 
     function updatePageCounter() {
       document.getElementById('page-counter').innerText = `${currentPageNum} / ${totalPages}`;
-      
+
       const btnFirst = document.getElementById('btn-first-page');
       const btnPrev = document.getElementById('btn-prev-page');
       const btnNext = document.getElementById('btn-next-page');
@@ -2242,12 +2273,27 @@ service firebase.storage {
       });
     }
 
+    function applyPresetTheme(presetName) {
+      const template = BG_PRESET_TEMPLATES[presetName];
+      if (template) {
+        const payload = {
+          background: template.background,
+          presetName: presetName
+        };
+        if (template.style) {
+          payload.style = template.style;
+          payload.size = template.size;
+        }
+        applyBoardBackground(payload);
+      }
+    }
+
     function applyBoardBackground(cssProps) {
       currentTheme = cssProps;
-      
+
       // Apply base background color
       bgLayer.style.backgroundColor = cssProps.background || '#ffffff';
-      
+
       // Apply templates / grids
       if (cssProps.presetName === 'Dot Grid') {
         bgLayer.className = "absolute inset-0 w-full h-full canvas-grid transition-all duration-300 pointer-events-none";
@@ -2265,25 +2311,14 @@ service firebase.storage {
       }
     }
 
-    function applyPresetTheme(presetName) {
-      const template = BG_PRESET_TEMPLATES[presetName];
-      if (template) {
-        const payload = {
-          background: template.background,
-          presetName: presetName
-        };
-        if (template.style) {
-          payload.style = template.style;
-          payload.size = template.size;
-        }
-        applyBoardBackground(payload);
-      }
-    }
-
     // Collapsible theme picker drawer
     document.getElementById('drawer-btn-bg').addEventListener('click', () => {
-      const picker = document.getElementById('bg-picker-panel');
-      picker.classList.toggle('hidden');
+      const panel = document.getElementById('bg-picker-panel');
+      panel.classList.toggle('hidden');
+      const chevron = document.querySelector('#drawer-btn-bg .material-symbols-outlined:last-child');
+      if (chevron) {
+        chevron.textContent = panel.classList.contains('hidden') ? 'expand_more' : 'expand_less';
+      }
     });
 
     // ----------------------------------------------------
@@ -2528,24 +2563,53 @@ service firebase.storage {
     // 11. IMPORT FILE ONTO CANVAS
     // ----------------------------------------------------
     const fileImport = document.getElementById('file-import');
-    fileImport.addEventListener('change', (e) => {
+
+    document.getElementById('drawer-btn-import').addEventListener('click', () => {
+      fileImport.click();
+      toggleDrawer(false);
+    });
+
+    fileImport.addEventListener('change', async (e) => {
       const file = e.target.files[0];
       if (!file) return;
 
-      if (file.type.startsWith('image/')) {
-        handleImageImport(file);
-      } else if (file.type === 'application/pdf') {
+      const isImage = file.type.startsWith('image/');
+
+      if (isImage) {
+        const dataUrl = URL.createObjectURL(file);
+        bgImage.src = dataUrl;
+        bgImage.style.opacity = '1';
+        offCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pageAnnotations[currentPageNum] = createBlankPageData();
+        pageAnnotations[currentPageNum].bgImageSrc = dataUrl;
+        history = [];
+        historyStep = -1;
+        saveState();
+        updateUndoRedoButtons();
+        updatePagesGrid();
+        document.getElementById('lesson-title').innerText = file.name;
+      } else {
+        // PDF
         const reader = new FileReader();
-        reader.onload = function() {
-          handlePDFImport(this.result);
+        reader.onload = async (ev) => {
+          await handlePDFImport(ev.target.result, false);
+          document.getElementById('lesson-title').innerText = file.name;
         };
         reader.readAsArrayBuffer(file);
       }
-      // Reset input
-      fileImport.value = '';
+
+      e.target.value = ''; // reset so same file can be re-imported
     });
 
     function handleImageImport(file) {
+      if (typeof file === 'string') {
+        bgImage.src = file;
+        bgImage.style.opacity = '1';
+        savePageAnnotations(currentPageNum);
+        updatePagesGrid();
+        return;
+      }
       const reader = new FileReader();
       reader.onload = function(e) {
         bgImage.src = e.target.result;
@@ -3079,7 +3143,71 @@ service firebase.storage {
     }
 
     // Show the Teacher Dashboard overlay
+    function deactivateIFPMode() {
+      // Clean up all IFP elements
+      ['ifp-clock','ifp-sidebar','ifp-home','ifp-menu-wrapper'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+      });
+      if (window._ifpClockInterval) {
+        clearInterval(window._ifpClockInterval);
+        window._ifpClockInterval = null;
+      }
+      
+      // Restore elements styling
+      const boardScreen = document.getElementById('whiteboard-screen')
+                       || document.getElementById('board-screen');
+      if (boardScreen) boardScreen.style.cssText = '';
+      
+      const canvasWrap = document.getElementById('canvas-container')
+                      || document.getElementById('board-area')
+                      || boardScreen?.querySelector('div');
+      if (canvasWrap) canvasWrap.style.cssText = '';
+      
+      const toolbar = document.getElementById('footer');
+      if (toolbar) {
+        toolbar.style.cssText = '';
+        const innerRow = toolbar.querySelector('div');
+        if (innerRow) innerRow.style.cssText = '';
+        
+        toolbar.querySelectorAll('button').forEach(btn => {
+          btn.style.cssText = '';
+        });
+        toolbar.querySelectorAll('span.material-symbols-outlined, svg, img').forEach(icon => {
+          icon.style.cssText = '';
+        });
+        const pageCounter = toolbar.querySelector('[id*="page-counter"], [id*="page-num"], [id*="page"]')
+                        || toolbar.querySelector('span:not(.material-symbols-outlined)');
+        if (pageCounter) {
+          pageCounter.style.cssText = '';
+        }
+      }
+      
+      // Show save and share buttons
+      const saveBtn = document.getElementById('btn-save')
+                   || document.getElementById('btn-save-pdf')
+                   || document.querySelector('[id*="save"]');
+      if (saveBtn) saveBtn.style.display = '';
+
+      const shareBtn = document.getElementById('btn-share')
+                    || document.querySelector('[id*="share"]');
+      if (shareBtn) shareBtn.style.display = '';
+
+      document.body.style.overflow = '';
+
+      // Restore hidden elements
+      document.querySelectorAll('[data-ifp-hidden="true"]')
+        .forEach(el => {
+          el.style.display = '';
+          delete el.dataset.ifpHidden;
+        });
+    }
+
+    // Show the Teacher Dashboard overlay
     function showTeacherDashboard() {
+      // Clean up IFP elements and styles
+      deactivateIFPMode();
+
       const searchBox = document.getElementById('dashboard-search');
       if (searchBox) searchBox.value = '';
 
@@ -4492,11 +4620,10 @@ service firebase.storage {
     let isCatalogLoaded = false;
 
     // Open Lesson selection modal
-    btnLessons.addEventListener('click', () => {
+    document.getElementById('drawer-btn-lessons').addEventListener('click', () => {
       toggleDrawer(false);
-      modalLessons.classList.remove('hidden');
-      // startCurriculumEngine is already called at login; re-render the current catalog state
-      renderSelectedCurriculum();
+      showTeacherDashboard();
+      renderTeacherDashboard();
     });
 
     btnCloseLessons.addEventListener('click', () => {
@@ -4999,16 +5126,41 @@ if (selectClass) selectClass.addEventListener('change', populateSubjectDropdown)
 if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurriculum);
 
     function convertGoogleDriveUrl(url) {
-      if (!url) return '';
-      const gdRegex = /drive\.google\.com\/(?:file\/d\/|open\?id=)([^/?#]+)/i;
-      const gdMatch = url.match(gdRegex);
-      if (gdMatch && gdMatch[1]) {
-        return `https://drive.google.com/uc?export=download&id=${gdMatch[1]}`;
+      if (!url) return url;
+
+      // Pattern 1: /file/d/FILE_ID/view or /file/d/FILE_ID/edit
+      const match1 = url.match(
+        /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/
+      );
+      if (match1) {
+        return `https://drive.google.com/file/d/${match1[1]}/preview`;
       }
-      const match = url.match(/\/d\/(.*?)\//);
-      if (match && match[1]) {
-        return `https://drive.google.com/uc?export=download&id=${match[1]}`;
+
+      // Pattern 2: open?id=FILE_ID
+      const match2 = url.match(
+        /drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/
+      );
+      if (match2) {
+        return `https://drive.google.com/file/d/${match2[1]}/preview`;
       }
+
+      // Pattern 3: docs.google.com/presentation or spreadsheets
+      const match3 = url.match(
+        /docs\.google\.com\/(presentation|spreadsheets|document)\/d\/([a-zA-Z0-9_-]+)/
+      );
+      if (match3) {
+        return `https://docs.google.com/${match3[1]}/d/${match3[2]}/preview`;
+      }
+
+      // Pattern 4: already a preview link — return as is
+      if (url.includes('/preview')) return url;
+
+      // Pattern 5: uc?export=view or uc?id= direct links
+      const match5 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (match5) {
+        return `https://drive.google.com/file/d/${match5[1]}/preview`;
+      }
+
       return url;
     }
 
@@ -5039,12 +5191,23 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
         iframe.classList.add('hidden');
         iframe.src = '';
       }
+      const gdIframe = document.getElementById('lesson-fallback-iframe');
+      if (gdIframe) {
+        gdIframe.style.display = 'none';
+        gdIframe.src = '';
+      }
+
+      const canvas = document.getElementById('drawing-canvas');
+      if (canvas) {
+        canvas.style.display = 'block';
+        canvas.style.zIndex = '10';
+      }
     }
 
     function detectProvider(url) {
       if (!url) return 'unknown';
       const lowerUrl = url.toLowerCase();
-      if (lowerUrl.includes("drive.google.com")) return "google-drive";
+      if (lowerUrl.includes("drive.google.com") || lowerUrl.includes("docs.google.com")) return "google-drive";
       if (lowerUrl.includes("cloudinary.com")) return "cloudinary";
       if (lowerUrl.includes("firebasestorage") || lowerUrl.includes("googleapis.com/v0/b/")) return "firebase";
       if (lowerUrl.includes("dropbox.com") || lowerUrl.includes("dropboxusercontent.com")) return "dropbox";
@@ -5064,7 +5227,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       }
       
       // Google Drive conversion
-      if (directUrl.includes("drive.google.com")) {
+      if (directUrl.includes("drive.google.com") || directUrl.includes("docs.google.com")) {
         const converted = convertGoogleDriveUrl(directUrl);
         console.log('[PDF] Converting Google Drive URL:', directUrl, '→', converted);
         return converted;
@@ -5117,6 +5280,11 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
                     margin-bottom:20px;line-height:1.6;">
           ${message}
         </div>
+        <p class="text-xs text-slate-500 mt-2">
+          If the lesson shows blank:<br>
+          • Make sure Google Drive sharing is set to <b>"Anyone with the link"</b><br>
+          • File → Share → Change to Anyone with link → Copy link
+        </p>
         <div style="display:flex;gap:10px;
                     justify-content:center;flex-wrap:wrap;">
           <button id="pdf-err-retry"
@@ -5141,6 +5309,322 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
             retryFn();
           });
       }
+    }
+
+    function detectURLType(url) {
+      if (!url) return 'unknown';
+      const u = url.toLowerCase();
+
+      // Already embed-ready URLs — use directly in iframe
+      if (u.includes('canva.com/design')) return 'embed';
+      if (u.includes('pubembed')) return 'embed';
+      if (u.includes('docs.google.com/presentation') && 
+          u.includes('/embed')) return 'embed';
+      if (u.includes('/embed?start=')) return 'embed';
+
+      // Google Slides — needs conversion to embed
+      if (u.includes('docs.google.com/presentation')) 
+        return 'google-slides';
+
+      // Google Drive file
+      if (u.includes('drive.google.com')) return 'google-drive';
+
+      // Google Docs
+      if (u.includes('docs.google.com/document')) return 'google-doc';
+
+      // OneDrive / SharePoint
+      if (u.includes('onedrive.live.com') || 
+          u.includes('sharepoint.com')) return 'onedrive';
+
+      // Dropbox
+      if (u.includes('dropbox.com')) return 'dropbox';
+
+      // YouTube
+      if (u.includes('youtube.com') || 
+          u.includes('youtu.be')) return 'youtube';
+
+      // Direct PDF URL
+      if (u.includes('.pdf')) return 'pdf';
+
+      // Direct image
+      if (u.match(/\.(jpg|jpeg|png|gif|webp|svg)(\?|$)/)) 
+        return 'image';
+
+      // PowerPoint online
+      if (u.includes('.pptx') || u.includes('.ppt')) return 'ppt';
+
+      // Any other URL — try iframe
+      return 'iframe';
+    }
+
+    function convertToEmbedURL(url, type) {
+      const u = url;
+
+      // Extract Google file ID helper
+      function getGoogleFileId(url) {
+        const patterns = [
+          /\/file\/d\/([a-zA-Z0-9_-]+)/,
+          /\/presentation\/d\/([a-zA-Z0-9_-]+)/,
+          /\/document\/d\/([a-zA-Z0-9_-]+)/,
+          /\/d\/e\/([a-zA-Z0-9_-]+)/,
+          /[?&]id=([a-zA-Z0-9_-]+)/,
+          /\/d\/([a-zA-Z0-9_-]+)/,
+        ];
+        for (const p of patterns) {
+          const m = url.match(p);
+          if (m) return m[1];
+        }
+        return null;
+      }
+
+      switch(type) {
+
+        case 'embed':
+          // Already ready — use as-is
+          return url;
+
+        case 'google-slides': {
+          const id = getGoogleFileId(u);
+          if (!id) return url;
+          return `https://docs.google.com/presentation/d/${id}/embed?start=false&loop=false&delayms=0&rm=minimal`;
+        }
+
+        case 'google-drive': {
+          const id = getGoogleFileId(u);
+          if (!id) return url;
+          // Check if it might be a presentation
+          if (u.includes('presentation')) {
+            return `https://docs.google.com/presentation/d/${id}/embed?start=false&loop=false&delayms=0`;
+          }
+          return `https://drive.google.com/file/d/${id}/preview`;
+        }
+
+        case 'google-doc': {
+          const id = getGoogleFileId(u);
+          if (!id) return url;
+          return `https://docs.google.com/document/d/${id}/preview`;
+        }
+
+        case 'onedrive': {
+          // OneDrive embed conversion
+          const encoded = encodeURIComponent(u);
+          return `https://view.officeapps.live.com/op/embed.aspx?src=${encoded}`;
+        }
+
+        case 'dropbox': {
+          // Dropbox direct view
+          return u.replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+                  .replace('?dl=0', '').replace('?dl=1', '');
+        }
+
+        case 'youtube': {
+          // Convert to embed
+          let videoId = null;
+          const m1 = u.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+          const m2 = u.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+          if (m1) videoId = m1[1];
+          else if (m2) videoId = m2[1];
+          if (!videoId) return url;
+          return `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+        }
+
+        case 'ppt': {
+          // Use Microsoft Office Online viewer
+          const encoded = encodeURIComponent(u);
+          return `https://view.officeapps.live.com/op/embed.aspx?src=${encoded}`;
+        }
+
+        case 'pdf':
+          // Direct PDF — handled by PDF.js, return as-is
+          return url;
+
+        case 'image':
+          // Direct image — return as-is
+          return url;
+
+        default:
+          // Unknown — try direct iframe
+          return url;
+      }
+    }
+
+    function loadGslideOverlay(embedUrl, title) {
+      // Remove existing overlay
+      const old = document.getElementById('gslide-wrapper');
+      if (old) old.remove();
+
+      const wrapper = document.createElement('div');
+      wrapper.id = 'gslide-wrapper';
+      wrapper.style.cssText = `
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+      `;
+
+      const bar = document.createElement('div');
+      bar.id = 'gslide-bar';
+      bar.style.cssText = `
+        height: 44px;
+        min-height: 44px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        border-bottom: 1px solid #1e293b;
+        transition: opacity 0.3s;
+      `;
+      
+      // Detect source for label
+      const sourceLabel = 
+        embedUrl.includes('canva.com') ? '🎨 Canva' :
+        embedUrl.includes('docs.google.com/presentation') ? '📊 Slides' :
+        embedUrl.includes('drive.google.com') ? '📁 Drive' :
+        embedUrl.includes('youtube.com/embed') ? '▶️ Video' :
+        embedUrl.includes('officeapps.live.com') ? '📋 Office' :
+        embedUrl.includes('dropbox') ? '📦 Dropbox' :
+        '🔗 Web';
+
+      bar.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="color:#64748b;font-size:11px;
+            background:#1e293b;padding:2px 8px;border-radius:6px;">
+            ${sourceLabel}
+          </span>
+          <span style="color:#e85c0d;font-weight:700;font-size:14px;
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+            max-width:50vw;">
+            ${title || 'Lesson'}
+          </span>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button id="gslide-fs" style="
+            background:#1e40af;border:none;color:#fff;
+            padding:5px 14px;border-radius:8px;
+            font-size:11px;font-weight:700;cursor:pointer;">
+            ⛶ Fullscreen
+          </button>
+          <button id="gslide-exit" style="
+            background:#dc2626;border:none;color:#fff;
+            padding:5px 14px;border-radius:8px;
+            font-size:11px;font-weight:700;cursor:pointer;">
+            ✕ Exit
+          </button>
+        </div>
+      `;
+
+      const iframe = document.createElement('iframe');
+      iframe.src = embedUrl;
+      iframe.style.cssText = `
+        width: 100%;
+        flex: 1;
+        border: none;
+        display: block;
+        background: #000;
+      `;
+      iframe.allow = 'autoplay; fullscreen';
+      iframe.allowFullscreen = true;
+
+      wrapper.appendChild(bar);
+      wrapper.appendChild(iframe);
+      document.body.appendChild(wrapper);
+
+      // Auto fullscreen
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          if (wrapper.requestFullscreen) {
+            wrapper.requestFullscreen().catch(() => {});
+          } else if (wrapper.webkitRequestFullscreen) {
+            wrapper.webkitRequestFullscreen();
+          } else if (wrapper.mozRequestFullScreen) {
+            wrapper.mozRequestFullScreen();
+          }
+        }, 300);
+      });
+
+      // Fullscreen toggle
+      document.getElementById('gslide-fs').onclick = () => {
+        if (!document.fullscreenElement) {
+          if (wrapper.requestFullscreen) {
+            wrapper.requestFullscreen().catch(() => {});
+          } else if (wrapper.webkitRequestFullscreen) {
+            wrapper.webkitRequestFullscreen();
+          } else if (wrapper.mozRequestFullScreen) {
+            wrapper.mozRequestFullScreen();
+          }
+        } else {
+          document.exitFullscreen();
+        }
+      };
+
+      // Update button and show/hide bar on fullscreen change
+      function fsChangeHandler() {
+        const btn = document.getElementById('gslide-fs');
+        if (btn) {
+          btn.innerHTML = document.fullscreenElement 
+            ? '⊡ Exit Full' : '⛶ Fullscreen';
+        }
+        
+        const b = document.getElementById('gslide-bar');
+        if (!b) return;
+        if (document.fullscreenElement) {
+          b.style.display = 'none';
+          iframe.style.height = '100vh';
+        } else {
+          b.style.display = 'flex';
+          iframe.style.height = 'calc(100vh - 44px)';
+        }
+      }
+      document.addEventListener('fullscreenchange', fsChangeHandler);
+
+      // Show bar on mouse move to top
+      function mouseMoveHandler(e) {
+        const b = document.getElementById('gslide-bar');
+        if (!b || !document.fullscreenElement) return;
+        if (e.clientY < 60) {
+          b.style.display = 'flex';
+          iframe.style.height = 'calc(100vh - 44px)';
+          clearTimeout(wrapper._t);
+          wrapper._t = setTimeout(() => {
+            if (document.fullscreenElement) {
+              b.style.display = 'none';
+              iframe.style.height = '100vh';
+            }
+          }, 2000);
+        }
+      }
+      wrapper.addEventListener('mousemove', mouseMoveHandler);
+
+      // Exit function
+      function exitGslide() {
+        if (document.fullscreenElement) document.exitFullscreen();
+        const w = document.getElementById('gslide-wrapper');
+        if (w) w.remove();
+        
+        document.removeEventListener('keydown', escFn);
+        document.removeEventListener('fullscreenchange', fsChangeHandler);
+        
+        const db = document.getElementById('teacher-dashboard');
+        if (db) db.classList.remove('hidden');
+        const wb = document.getElementById('whiteboard-screen') || 
+                   document.getElementById('board-screen');
+        if (wb) wb.classList.add('hidden');
+      }
+
+      document.getElementById('gslide-exit').onclick = exitGslide;
+
+      // ESC key
+      function escFn(e) {
+        if (e.key === 'Escape' && !document.fullscreenElement) {
+          exitGslide();
+        }
+      }
+      document.addEventListener('keydown', escFn);
     }
 
     async function loadLessonFromURL(url, title, lessonId = null) {
@@ -5172,16 +5656,46 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
         return;
       }
       
-      // ── DRM Security Check ──────────────────────────────────
-      if (!teacherSession.isAdmin && teacherSession.isLoggedIn && lessonId) {
-        if (!teacherAssignmentsSet.has(lessonId)) {
-          alert("⛔ Access Denied: You are not authorized to access this lesson.\nContact your administrator to request access.");
-          return;
-        }
+      // ── Universal URL Handler ──────────────────
+      const urlType = detectURLType(url);
+      console.log('[Indoboard] URL type detected:', urlType, url);
+
+      if (urlType === 'pdf') {
+        // Direct PDF — use existing PDF.js pipeline
+        // DO NOT change this — it already works perfectly
+        // Just let it fall through to existing PDF loading code below
+        
+      } else if (urlType === 'image') {
+        // Load image directly on canvas
+        document.getElementById('lesson-title').innerText = title || 'Lesson';
+        
+        // Clear canvas annotations
+        offCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pageAnnotations[currentPageNum] = createBlankPageData();
+        pageAnnotations[currentPageNum].bgImageSrc = url;
+        history = [];
+        historyStep = -1;
+        saveState();
+        updateUndoRedoButtons();
+
+        handleImageImport(url);
+        hideDashboardShowWhiteboard();
+        hideGlobalLoading();
+        return;
+
+      } else {
+        // Everything else — convert and load in fullscreen iframe
+        const embedUrl = convertToEmbedURL(url, urlType);
+        console.log('[Indoboard] Embed URL:', embedUrl);
+        loadGslideOverlay(embedUrl, title);
+        hideGlobalLoading();
+        hideDashboardShowWhiteboard();
+        return;
       }
-      
-      activeLessonId = lessonId; // Store loaded lesson ID
-      hideFallbackIFrame(); // Reset any fallback iframe state
+      // ── End Universal URL Handler ──────────────
+
+
 
       if (_activeLoadingController) {
         try { _activeLoadingController.abort(); } catch(e) {}
@@ -5404,10 +5918,467 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
     function hideDashboardShowWhiteboard() {
       const dash = document.getElementById('teacher-dashboard');
       if (dash) dash.classList.add('hidden');
+      
+      const wb = document.getElementById('whiteboard-screen')
+              || document.getElementById('board-screen');
+      if (wb) wb.classList.remove('hidden');
+
       // Show header "Back to Dashboard" button only for teacher role
       if (!teacherSession.isAdmin && teacherSession.isLoggedIn) {
         const btnDash = document.getElementById('btn-header-dashboard');
         if (btnDash) btnDash.classList.remove('hidden');
+      }
+
+      // Hide all top navigation for IFP fullscreen mode
+      const selectors = [
+        '#top-bar', '#navbar', '#header', '#app-header',
+        '#topbar', '#top-nav', 'header', 'nav',
+        '[id*="top-bar"]', '[id*="navbar"]', '[id*="header"]'
+      ];
+      selectors.forEach(sel => {
+        const el = document.querySelector(sel);
+        if (el && !el.closest('#teacher-dashboard')) {
+          if (el.id === 'header' || !el.closest('#whiteboard-screen')) {
+            el.dataset.ifpHidden = 'true';
+            el.style.display = 'none';
+          }
+        }
+      });
+      
+      // Make whiteboard truly fullscreen
+      document.body.style.overflow = 'hidden';
+
+      // Fix 2: Canvas fills 100% screen with black background
+      const boardScreen = document.getElementById('whiteboard-screen')
+                       || document.getElementById('board-screen');
+      if (boardScreen) {
+        boardScreen.style.cssText = `
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          background: #1a1a1a !important;
+          z-index: 100 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          overflow: hidden !important;
+        `;
+      }
+
+      const canvasWrap = document.getElementById('canvas-container')
+                      || document.getElementById('board-area')
+                      || boardScreen?.querySelector('div');
+      if (canvasWrap) {
+        canvasWrap.style.cssText = `
+          flex: 1 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          position: relative !important;
+          overflow: hidden !important;
+          background: #1a1a1a !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding-bottom: 0 !important;
+          margin-bottom: 0 !important;
+        `;
+      }
+
+      // Fix 3: Redesign bottom toolbar exactly like Note 3
+      const toolbar = document.getElementById('footer');
+      if (toolbar) {
+        toolbar.style.cssText = `
+          position: fixed !important;
+          bottom: 6px !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          width: auto !important;
+          height: 44px !important;
+          background: rgba(15, 15, 15, 0.88) !important;
+          backdrop-filter: blur(10px) !important;
+          border-radius: 14px !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 2px !important;
+          padding: 0 10px !important;
+          z-index: 500 !important;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.5) !important;
+        `;
+
+        const innerRow = toolbar.querySelector('div');
+        if (innerRow) {
+          innerRow.style.cssText = `
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 2px !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+          `;
+        }
+
+        const toolbarButtons = toolbar.querySelectorAll('button');
+        toolbarButtons.forEach(btn => {
+          btn.style.width = '36px';
+          btn.style.height = '36px';
+          btn.style.minWidth = '36px';
+          btn.style.padding = '0';
+          btn.style.display = 'flex';
+          btn.style.alignItems = 'center';
+          btn.style.justifyContent = 'center';
+          btn.style.borderRadius = '8px';
+          btn.style.fontSize = '14px';
+          btn.style.background = 'transparent';
+          btn.style.border = 'none';
+        });
+
+        toolbar.querySelectorAll('span.material-symbols-outlined, svg, img').forEach(icon => {
+          icon.style.fontSize = '18px';
+          icon.style.width = '18px';
+          icon.style.height = '18px';
+        });
+
+        const pageCounter = toolbar.querySelector('[id*="page-counter"], [id*="page-num"], [id*="page"]')
+                        || toolbar.querySelector('span:not(.material-symbols-outlined)');
+        if (pageCounter) {
+          pageCounter.style.fontSize = '11px';
+          pageCounter.style.fontWeight = '600';
+          pageCounter.style.color = 'rgba(255,255,255,0.7)';
+          pageCounter.style.minWidth = '44px';
+          pageCounter.style.textAlign = 'center';
+          pageCounter.style.fontFamily = 'monospace';
+        }
+
+        // CHANGE 2 — Remove save and share buttons from toolbar
+        // Hide save button
+        const saveBtn = document.getElementById('btn-save')
+                     || document.getElementById('btn-save-pdf')
+                     || document.querySelector('[id*="save"]');
+        if (saveBtn) saveBtn.style.display = 'none';
+
+        // Hide share button  
+        const shareBtn = document.getElementById('btn-share')
+                      || document.querySelector('[id*="share"]');
+        if (shareBtn) shareBtn.style.display = 'none';
+      }
+
+
+      // Fix 5: Add collapsed left sidebar like Note software (smaller arrows)
+      const existingSidebar = document.getElementById('ifp-sidebar');
+      if (existingSidebar) existingSidebar.remove();
+
+      const sidebar = document.createElement('div');
+      sidebar.id = 'ifp-sidebar';
+      sidebar.style.cssText = `
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 600;
+      `;
+      sidebar.innerHTML = `
+        <div style="
+          background: rgba(15,15,15,0.7);
+          border-radius: 0 6px 6px 0;
+          padding: 4px 3px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-left: none;
+        ">
+          <button id="ifp-prev-btn" style="
+            background: none; border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px; cursor: pointer;
+            width: 22px; height: 22px;
+            display: flex; align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+          " title="Previous page">▲</button>
+          
+          <button id="ifp-next-btn" style="
+            background: none; border: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px; cursor: pointer;
+            width: 22px; height: 22px;
+            display: flex; align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+          " title="Next page">▼</button>
+        </div>
+      `;
+      document.body.appendChild(sidebar);
+
+      // Add page navigation event listeners
+      document.getElementById('ifp-prev-btn').onclick = () => {
+        const cur = currentPageNum || 1;
+        if (typeof goToPage === 'function') goToPage(cur - 1);
+      };
+      document.getElementById('ifp-next-btn').onclick = () => {
+        const cur = currentPageNum || 1;
+        if (typeof goToPage === 'function') goToPage(cur + 1);
+      };
+
+      // CHANGE 1 — Replace ⬅ back button with ⋮ three dots menu button
+      const existingHome = document.getElementById('ifp-home');
+      if (existingHome) existingHome.remove();
+
+      const existingMenu = document.getElementById('ifp-menu-wrapper');
+      if (existingMenu) existingMenu.remove();
+
+      // Three dots menu button + dropdown
+      const menuWrapper = document.createElement('div');
+      menuWrapper.id = 'ifp-menu-wrapper';
+      menuWrapper.style.cssText = `
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 700;
+      `;
+
+      menuWrapper.innerHTML = `
+        <button id="ifp-menu-btn" style="
+          background: rgba(15,15,15,0.85);
+          border: 1px solid rgba(255,255,255,0.1);
+          color: white;
+          width: 36px;
+          height: 36px;
+          border-radius: 10px;
+          font-size: 18px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          letter-spacing: 1px;
+        ">⋮</button>
+
+        <div id="ifp-menu-dropdown" style="
+          display: none;
+          position: absolute;
+          top: 44px;
+          left: 0;
+          background: rgba(15, 15, 15, 0.95);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 12px;
+          padding: 6px;
+          min-width: 200px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+          backdrop-filter: blur(12px);
+          z-index: 800;
+        ">
+          <button class="ifp-menu-item" id="ifp-menu-dashboard" style="
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          ">
+            <span style="font-size:16px;">📋</span> Load Assigned Lesson
+          </button>
+
+          <button class="ifp-menu-item" id="ifp-menu-import" style="
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          ">
+            <span style="font-size:16px;">📄</span> Import PDF / Image
+          </button>
+
+          <button class="ifp-menu-item" id="ifp-menu-theme" style="
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          ">
+            <span style="font-size:16px;">🎨</span> Change Theme
+          </button>
+
+          <div style="
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+            margin: 4px 8px;
+          "></div>
+
+          <button class="ifp-menu-item" id="ifp-menu-blank" style="
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          ">
+            <span style="font-size:16px;">🗒️</span> New Blank Canvas
+          </button>
+
+          <div style="
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+            margin: 4px 8px;
+          "></div>
+
+          <button class="ifp-menu-item" id="ifp-menu-exit" style="
+            width: 100%;
+            background: none;
+            border: none;
+            color: #f87171;
+            text-align: left;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          ">
+            <span style="font-size:16px;">⬅</span> Back to Dashboard
+          </button>
+        </div>
+      `;
+
+      document.body.appendChild(menuWrapper);
+
+      // Add hover effect to menu items
+      menuWrapper.querySelectorAll('.ifp-menu-item').forEach(btn => {
+        btn.onmouseover = () => btn.style.background = 'rgba(255,255,255,0.08)';
+        btn.onmouseout = () => btn.style.background = 'none';
+      });
+
+      // Toggle dropdown on ⋮ click
+      document.getElementById('ifp-menu-btn').onclick = (e) => {
+        e.stopPropagation();
+        const dd = document.getElementById('ifp-menu-dropdown');
+        dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+      };
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function closeIFPMenu(e) {
+        const dd = document.getElementById('ifp-menu-dropdown');
+        const btn = document.getElementById('ifp-menu-btn');
+        if (dd && !dd.contains(e.target) && e.target !== btn) {
+          dd.style.display = 'none';
+        }
+        if (!document.getElementById('ifp-menu-wrapper')) {
+          document.removeEventListener('click', closeIFPMenu);
+        }
+      });
+
+      // ── IFP Menu Item Actions — Direct Inline Binding ──
+
+      function closeIFPDropdown() {
+        const dd = document.getElementById('ifp-menu-dropdown');
+        if (dd) dd.style.display = 'none';
+      }
+
+      // 1. Load Assigned Lesson
+      const _ifpD = document.getElementById('ifp-menu-dashboard');
+      if (_ifpD) {
+        _ifpD.onclick = (e) => {
+          e.stopPropagation();
+          closeIFPDropdown();
+          toggleDrawer(false);
+          if (typeof showTeacherDashboard === 'function') showTeacherDashboard();
+          if (typeof renderTeacherDashboard === 'function') renderTeacherDashboard();
+        };
+      }
+
+      // 2. Import PDF / Image
+      const _ifpI = document.getElementById('ifp-menu-import');
+      if (_ifpI) {
+        _ifpI.onclick = (e) => {
+          e.stopPropagation();
+          closeIFPDropdown();
+          const fi = document.getElementById('file-import');
+          if (fi) fi.click();
+        };
+      }
+
+      // 3. Change Theme → open drawer + expand theme panel
+      const _ifpT = document.getElementById('ifp-menu-theme');
+      if (_ifpT) {
+        _ifpT.onclick = (e) => {
+          e.stopPropagation();
+          closeIFPDropdown();
+          if (typeof toggleDrawer === 'function') toggleDrawer(true);
+          setTimeout(() => {
+            const bgPanel = document.getElementById('bg-picker-panel');
+            if (bgPanel) bgPanel.classList.remove('hidden');
+            const bgBtn = document.getElementById('drawer-btn-bg');
+            if (bgBtn) bgBtn.scrollIntoView({ behavior: 'smooth' });
+          }, 320);
+        };
+      }
+
+      // 4. New Blank Canvas
+      const _ifpB = document.getElementById('ifp-menu-blank');
+      if (_ifpB) {
+        _ifpB.onclick = (e) => {
+          e.stopPropagation();
+          closeIFPDropdown();
+          if (confirm('Create new blank canvas?\nAll unsaved annotations will be lost.')) {
+            if (typeof clearCurrentPage === 'function') clearCurrentPage(true);
+            totalPages = 1;
+            currentPageNum = 1;
+            pageAnnotations = { 1: createBlankPageData() };
+            if (typeof updatePageCounter === 'function') updatePageCounter();
+            if (typeof loadPageAnnotations === 'function') loadPageAnnotations(1);
+            const mc = document.getElementById('multi-page-controls');
+            if (mc) mc.classList.add('hidden');
+            const lt = document.getElementById('lesson-title');
+            if (lt) lt.innerText = 'Untitled Lesson';
+          }
+        };
+      }
+
+      // 5. Back to Dashboard
+      const _ifpE = document.getElementById('ifp-menu-exit');
+      if (_ifpE) {
+        _ifpE.onclick = (e) => {
+          e.stopPropagation();
+          closeIFPDropdown();
+          if (typeof deactivateIFPMode === 'function') deactivateIFPMode();
+          if (typeof showTeacherDashboard === 'function') showTeacherDashboard();
+          if (typeof renderTeacherDashboard === 'function') renderTeacherDashboard();
+        };
       }
     }
 
@@ -5845,7 +6816,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       await runTest("G-Drive & Dropbox URL Conversion", async () => {
         const gdriveShare = "https://drive.google.com/file/d/1A2B3C_gdId/view?usp=sharing";
         const convertedGd = getDirectDownloadURL(gdriveShare);
-        if (!convertedGd.includes("export=download") || !convertedGd.includes("id=1A2B3C_gdId")) {
+        if (!convertedGd.includes("/preview") || !convertedGd.includes("1A2B3C_gdId")) {
           throw new Error("Google Drive conversion failed: " + convertedGd);
         }
         
@@ -6026,7 +6997,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
           throw new Error("Expected google-drive, got: " + provider);
         }
         const converted = getDirectDownloadURL(url);
-        if (!converted.includes("export=download") || !converted.includes("id=1A2B3C_gdId")) {
+        if (!converted.includes("/preview") || !converted.includes("1A2B3C_gdId")) {
           throw new Error("Google Drive conversion failed: " + converted);
         }
       });
@@ -6264,10 +7235,12 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
     });
 
     // ----------------------------------------------------
-    // 21. POPUPS / MODALS TOGGLE INTERACTION
+    // 21. POPUPS / MODALS TOGGLE INTERACTION & TOOLBAR
     // ----------------------------------------------------
+
     function toggleColorPopup(forceState) {
       const popup = document.getElementById('color-palette-popup');
+      if (!popup) return;
       const targetState = forceState !== undefined ? forceState : popup.classList.contains('hidden');
       popup.classList.toggle('hidden', !targetState);
       if (targetState) {
@@ -6278,6 +7251,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
 
     function toggleEraserPopup(forceState) {
       const popup = document.getElementById('eraser-popup');
+      if (!popup) return;
       const targetState = forceState !== undefined ? forceState : popup.classList.contains('hidden');
       popup.classList.toggle('hidden', !targetState);
       if (targetState) {
@@ -6286,9 +7260,9 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       }
     }
 
-    // Toolbox popup
     function toggleToolbox(forceState) {
       const popup = document.getElementById('toolbox-popup');
+      if (!popup) return;
       const targetState = forceState !== undefined ? forceState : popup.classList.contains('hidden');
       popup.classList.toggle('hidden', !targetState);
       if (targetState) {
@@ -6299,6 +7273,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
 
     function togglePagesPanel(forceState) {
       const panel = document.getElementById('pages-panel');
+      if (!panel) return;
       const targetState = forceState !== undefined ? forceState : panel.classList.contains('hidden');
       panel.classList.toggle('hidden', !targetState);
       if (targetState) {
@@ -6306,7 +7281,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       }
     }
 
-    // Swatches loaders
+    // ── Pen color swatches ────────────────────────────────────
     const PEN_COLOR_SWATCHES = [
       '#1e293b', '#64748b', '#cbd5e1', '#ffffff', '#ba1a1a', '#ef4444',
       '#f97316', '#eab308', '#22c55e', '#10b981', '#06b6d4', '#3b82f6',
@@ -6315,6 +7290,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
 
     function renderPenSwatches() {
       const container = document.getElementById('pen-swatches-grid');
+      if (!container) return;
       container.innerHTML = '';
       PEN_COLOR_SWATCHES.forEach(color => {
         const btn = document.createElement('button');
@@ -6322,115 +7298,154 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
         btn.style.backgroundColor = color;
         btn.onclick = () => {
           penColor = color;
-          document.getElementById('pen-color-dot').style.backgroundColor = color;
-          document.getElementById('custom-color-input').value = color;
+          const dot = document.getElementById('pen-color-dot');
+          const inp = document.getElementById('custom-color-input');
+          if (dot) dot.style.backgroundColor = color;
+          if (inp) inp.value = color;
           toggleColorPopup(false);
         };
         container.appendChild(btn);
       });
     }
+    renderPenSwatches();
 
-    // Custom Color picker events
-    document.getElementById('custom-color-input').addEventListener('input', (e) => {
-      penColor = e.target.value;
-      document.getElementById('pen-color-dot').style.backgroundColor = penColor;
-    });
+    // ── Custom color picker ───────────────────────────────────
+    const _customColorInput = document.getElementById('custom-color-input');
+    if (_customColorInput) {
+      _customColorInput.addEventListener('input', (e) => {
+        penColor = e.target.value;
+        const dot = document.getElementById('pen-color-dot');
+        if (dot) dot.style.backgroundColor = penColor;
+      });
+    }
 
-    // Pen size slider
-    document.getElementById('pen-thickness-slider').addEventListener('input', (e) => {
-      penThickness = parseInt(e.target.value);
-      document.getElementById('pen-thickness-label').innerText = penThickness;
-    });
+    // ── Pen thickness slider ──────────────────────────────────
+    const _penSlider = document.getElementById('pen-thickness-slider');
+    if (_penSlider) {
+      _penSlider.addEventListener('input', (e) => {
+        penThickness = parseInt(e.target.value);
+        const lbl = document.getElementById('pen-thickness-label');
+        if (lbl) lbl.innerText = penThickness;
+      });
+    }
 
-    // Eraser presets & slider
+    // ── Eraser preset buttons & slider ────────────────────────
     function setEraserPreset(size) {
       eraserSize = size;
-      document.getElementById('eraser-size-slider').value = size;
-      document.getElementById('eraser-size-label').innerText = size + 'px';
-      document.getElementById('eraser-preview-dot').style.width = size + 'px';
-      document.getElementById('eraser-preview-dot').style.height = size + 'px';
+      const slider = document.getElementById('eraser-size-slider');
+      const lbl    = document.getElementById('eraser-size-label');
+      const dot    = document.getElementById('eraser-preview-dot');
+      if (slider) slider.value = size;
+      if (lbl)    lbl.innerText = size + 'px';
+      if (dot)    { dot.style.width = size + 'px'; dot.style.height = size + 'px'; }
     }
 
-    document.getElementById('eraser-size-slider').addEventListener('input', (e) => {
-      const size = parseInt(e.target.value);
-      eraserSize = size;
-      document.getElementById('eraser-size-label').innerText = size + 'px';
-      document.getElementById('eraser-preview-dot').style.width = size + 'px';
-      document.getElementById('eraser-preview-dot').style.height = size + 'px';
-    });
+    const _eraserSlider = document.getElementById('eraser-size-slider');
+    if (_eraserSlider) {
+      _eraserSlider.addEventListener('input', (e) => {
+        const size = parseInt(e.target.value);
+        eraserSize = size;
+        const lbl = document.getElementById('eraser-size-label');
+        const dot = document.getElementById('eraser-preview-dot');
+        if (lbl) lbl.innerText = size + 'px';
+        if (dot) { dot.style.width = size + 'px'; dot.style.height = size + 'px'; }
+      });
+    }
 
-    // Tool click handlers
-    document.getElementById('tool-select').addEventListener('click', () => {
-      currentTool = 'select';
-      setActiveToolbarButton('tool-select');
-    });
-
-    document.getElementById('tool-pen').addEventListener('click', (e) => {
-      // Double click toggle or regular activation
-      if (currentTool === 'pen') {
-        toggleColorPopup();
-      } else {
-        currentTool = 'pen';
-        setActiveToolbarButton('tool-pen');
-      }
-    });
-
-    // Double click override
-    document.getElementById('tool-pen').addEventListener('dblclick', () => {
-      toggleColorPopup(true);
-    });
-
-    document.getElementById('tool-eraser').addEventListener('click', () => {
-      if (currentTool === 'eraser') {
-        toggleEraserPopup();
-      } else {
-        currentTool = 'eraser';
-        setActiveToolbarButton('tool-eraser');
-      }
-    });
-
-    document.getElementById('tool-eraser').addEventListener('dblclick', () => {
-      toggleEraserPopup(true);
-    });
-
-    document.getElementById('btn-toolbox').addEventListener('click', () => {
-      toggleToolbox();
-    });
-
-    // Navigation page event bindings
-    document.getElementById('btn-add-page').addEventListener('click', () => addNewPage());
-    document.getElementById('btn-undo').addEventListener('click', () => undo());
-    document.getElementById('btn-redo').addEventListener('click', () => redo());
-    document.getElementById('btn-clear-canvas').addEventListener('click', () => clearCurrentPage());
-
-    document.getElementById('btn-first-page').addEventListener('click', () => goToPage(1));
-    document.getElementById('btn-prev-page').addEventListener('click', () => goToPage(currentPageNum - 1));
-    document.getElementById('btn-next-page').addEventListener('click', () => goToPage(currentPageNum + 1));
-    document.getElementById('btn-last-page').addEventListener('click', () => goToPage(totalPages));
-    document.getElementById('btn-pages-list').addEventListener('click', () => togglePagesPanel());
-
+    // ── Active tool button highlight ──────────────────────────
     function setActiveToolbarButton(id) {
-      // Clear active states
       ['tool-select', 'tool-pen', 'tool-eraser'].forEach(btnId => {
         const btn = document.getElementById(btnId);
-        btn.className = "w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 transition-all";
+        if (btn) btn.className = "w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 transition-all";
       });
-      // Set active on selected
       const el = document.getElementById(id);
-      el.className = "w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-primary text-on-primary scale-105 transition-all shadow-md";
+      if (el) el.className = "w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-primary text-on-primary scale-105 transition-all shadow-md";
     }
 
-    // Drawer togglers
-    const btnMenu = document.getElementById('btn-menu');
-    const drawer = document.getElementById('menu-drawer');
-    const backdrop = document.getElementById('drawer-backdrop');
-    const btnCloseDrawer = document.getElementById('btn-close-drawer');
+    // ── Tool click handlers ───────────────────────────────────
+    const _btnSelect = document.getElementById('tool-select');
+    if (_btnSelect) {
+      _btnSelect.addEventListener('click', () => {
+        currentTool = 'select';
+        setActiveToolbarButton('tool-select');
+        toggleColorPopup(false);
+        toggleEraserPopup(false);
+        toggleToolbox(false);
+      });
+    }
 
-    btnMenu.addEventListener('click', () => toggleDrawer(true));
-    btnCloseDrawer.addEventListener('click', () => toggleDrawer(false));
-    backdrop.addEventListener('click', () => toggleDrawer(false));
+    const _btnPen = document.getElementById('tool-pen');
+    if (_btnPen) {
+      _btnPen.addEventListener('click', () => {
+        if (currentTool === 'pen') {
+          toggleColorPopup();
+        } else {
+          currentTool = 'pen';
+          setActiveToolbarButton('tool-pen');
+        }
+      });
+      _btnPen.addEventListener('dblclick', () => {
+        currentTool = 'pen';
+        setActiveToolbarButton('tool-pen');
+        toggleColorPopup(true);
+      });
+    }
 
+    const _btnEraser = document.getElementById('tool-eraser');
+    if (_btnEraser) {
+      _btnEraser.addEventListener('click', () => {
+        if (currentTool === 'eraser') {
+          toggleEraserPopup();
+        } else {
+          currentTool = 'eraser';
+          setActiveToolbarButton('tool-eraser');
+        }
+      });
+      _btnEraser.addEventListener('dblclick', () => {
+        currentTool = 'eraser';
+        setActiveToolbarButton('tool-eraser');
+        toggleEraserPopup(true);
+      });
+    }
+
+    const _btnToolbox = document.getElementById('btn-toolbox');
+    if (_btnToolbox) {
+      _btnToolbox.addEventListener('click', () => toggleToolbox());
+    }
+
+    // ── Page controls ─────────────────────────────────────────
+    const _btnAddPage = document.getElementById('btn-add-page');
+    if (_btnAddPage) _btnAddPage.addEventListener('click', () => addNewPage());
+
+    const _btnUndo = document.getElementById('btn-undo');
+    if (_btnUndo) _btnUndo.addEventListener('click', () => undo());
+
+    const _btnRedo = document.getElementById('btn-redo');
+    if (_btnRedo) _btnRedo.addEventListener('click', () => redo());
+
+    const _btnClearCanvas = document.getElementById('btn-clear-canvas');
+    if (_btnClearCanvas) _btnClearCanvas.addEventListener('click', () => clearCurrentPage());
+
+    const _btnFirstPage = document.getElementById('btn-first-page');
+    if (_btnFirstPage) _btnFirstPage.addEventListener('click', () => goToPage(1));
+
+    const _btnPrevPage = document.getElementById('btn-prev-page');
+    if (_btnPrevPage) _btnPrevPage.addEventListener('click', () => goToPage(currentPageNum - 1));
+
+    const _btnNextPage = document.getElementById('btn-next-page');
+    if (_btnNextPage) _btnNextPage.addEventListener('click', () => goToPage(currentPageNum + 1));
+
+    const _btnLastPage = document.getElementById('btn-last-page');
+    if (_btnLastPage) _btnLastPage.addEventListener('click', () => goToPage(totalPages));
+
+    const _btnPagesList = document.getElementById('btn-pages-list');
+    if (_btnPagesList) _btnPagesList.addEventListener('click', () => togglePagesPanel());
+
+    // ── Drawer toggle ─────────────────────────────────────────
     function toggleDrawer(open) {
+      const drawer   = document.getElementById('menu-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      if (!drawer || !backdrop) return;
       if (open) {
         drawer.classList.remove('-translate-x-full');
         backdrop.classList.remove('hidden');
@@ -6441,35 +7456,6 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
         setTimeout(() => backdrop.classList.add('hidden'), 300);
       }
     }
-
-    // Drawer operations binds
-    document.getElementById('drawer-btn-new').addEventListener('click', () => {
-      if (confirm("Create new blank chalkboard? Unsaved drawings will be discarded.")) {
-        clearCurrentPage(true);
-        totalPages = 1;
-        currentPageNum = 1;
-        pageAnnotations = { 1: createBlankPageData() };
-        updatePageCounter();
-        document.getElementById('multi-page-controls').classList.add('hidden');
-        document.getElementById('lesson-title').innerText = "Untitled Lesson";
-        toggleDrawer(false);
-      }
-    });
-
-    document.getElementById('drawer-btn-import').addEventListener('click', () => {
-      fileImport.click();
-      toggleDrawer(false);
-    });
-
-    document.getElementById('drawer-btn-save').addEventListener('click', () => {
-      saveAllPagesAsPDF();
-      toggleDrawer(false);
-    });
-
-    document.getElementById('drawer-btn-clear').addEventListener('click', () => {
-      clearCurrentPage();
-      toggleDrawer(false);
-    });
 
     // Top Bar save (PNG current page image)
     document.getElementById('btn-save').addEventListener('click', () => {
@@ -6557,6 +7543,28 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
         scroller.appendChild(wrapper);
       }
     }
+
+    // ── Global function exports for MenuController.js ─────────────────
+    window.updatePageCounter = updatePageCounter;
+    window.updatePagesGrid = updatePagesGrid;
+    window.updateUndoRedoButtons = updateUndoRedoButtons;
+    window.handlePDFImport = handlePDFImport;
+    window.handleImageImport = handleImageImport;
+    window.loadLessonFromURL = loadLessonFromURL;
+    window.showTeacherDashboard = showTeacherDashboard;
+    window.clearCurrentPage = clearCurrentPage;
+    window.createBlankPageData = createBlankPageData;
+    window.saveState = saveState;
+    window.loadPageAnnotations = loadPageAnnotations;
+    window.toggleDrawer = toggleDrawer;
+    window.deactivateIFPMode = deactivateIFPMode;
+    window.hideDashboardShowWhiteboard = hideDashboardShowWhiteboard;
+    window.showGlobalLoading = showGlobalLoading;
+    window.hideGlobalLoading = hideGlobalLoading;
+    window.db = db;
+    window.teacherSession = teacherSession;
+    // ─────────────────────────────────────────────────────────────────
+
 
     // ----------------------------------------------------
     // 23. EARLY BOOT CONNECTION PROBE & INITS
@@ -6929,26 +7937,16 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
     // ── Teacher Dashboard Event Listeners ────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
 
-      // Header "Back to Dashboard" button
-      const btnHeaderDash = document.getElementById('btn-header-dashboard');
-      if (btnHeaderDash) {
-        btnHeaderDash.addEventListener('click', () => {
-          showTeacherDashboard();
-          renderTeacherDashboard();
-        });
-      }
+      document.getElementById('drawer-btn-dashboard').addEventListener('click', () => {
+        toggleDrawer(false);
+        showTeacherDashboard();
+        renderTeacherDashboard();
+      });
 
-      // Drawer sidebar "My Assigned Lessons" button
-      const drawerDash = document.getElementById('drawer-btn-dashboard');
-      if (drawerDash) {
-        drawerDash.addEventListener('click', () => {
-          // Close the drawer using existing toggleDrawer function
-          toggleDrawer(false);
-          // Show the dashboard
-          showTeacherDashboard();
-          renderTeacherDashboard();
-        });
-      }
+      document.getElementById('btn-header-dashboard').addEventListener('click', () => {
+        showTeacherDashboard();
+        renderTeacherDashboard();
+      });
 
       // Dashboard search bar — live filtering
       const dashSearch = document.getElementById('dashboard-search');
@@ -6972,6 +7970,187 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
         btnDashLogout.addEventListener('click', () => handleLogout(false));
       }
     });
+
+    (function indoboardMenuFix() {
+
+      // Strip all old listeners by replacing button with a clean clone
+      function rewire(id) {
+        const old = document.getElementById(id);
+        if (!old) return null;
+        const fresh = old.cloneNode(true);
+        old.parentNode.replaceChild(fresh, old);
+        return fresh;
+      }
+
+      // ── BUG 1+2+3: Hamburger open, X close, backdrop close ──
+      const btnMenu = rewire('btn-menu');
+      if (btnMenu) btnMenu.addEventListener('click', () => {
+        if (typeof toggleDrawer === 'function') toggleDrawer(true);
+      });
+
+      const btnCloseDrawer = rewire('btn-close-drawer');
+      if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', () => {
+        if (typeof toggleDrawer === 'function') toggleDrawer(false);
+      });
+
+      const backdrop = document.getElementById('drawer-backdrop');
+      if (backdrop) {
+        const freshBackdrop = backdrop.cloneNode(true);
+        backdrop.parentNode.replaceChild(freshBackdrop, backdrop);
+        freshBackdrop.addEventListener('click', () => {
+          if (typeof toggleDrawer === 'function') toggleDrawer(false);
+        });
+      }
+
+      // ── BUG 4: Change Theme button opens theme subpanel, not logout ──
+      const btnBg = rewire('drawer-btn-bg');
+      if (btnBg) {
+        btnBg.addEventListener('click', () => {
+          const panel = document.getElementById('bg-picker-panel');
+          if (!panel) return;
+          panel.classList.toggle('hidden');
+          const chevron = btnBg.querySelector('.material-symbols-outlined:last-child');
+          if (chevron) {
+            chevron.textContent = panel.classList.contains('hidden') ? 'expand_more' : 'expand_less';
+          }
+        });
+      }
+
+      // ── BUG 5: New Blank Canvas ──
+      const btnNew = rewire('drawer-btn-new');
+      if (btnNew) {
+        btnNew.addEventListener('click', () => {
+          if (confirm('Create new blank canvas? All unsaved drawings will be discarded.')) {
+            if (typeof clearCurrentPage === 'function') clearCurrentPage(true);
+            totalPages = 1;
+            currentPageNum = 1;
+            pageAnnotations = { 1: (typeof createBlankPageData === 'function' ? createBlankPageData() : {}) };
+            if (typeof updatePageCounter === 'function') updatePageCounter();
+            if (typeof loadPageAnnotations === 'function') loadPageAnnotations(1);
+            const mc = document.getElementById('multi-page-controls');
+            if (mc) mc.classList.add('hidden');
+            const lt = document.getElementById('lesson-title');
+            if (lt) lt.innerText = 'Untitled Lesson';
+            if (typeof toggleDrawer === 'function') toggleDrawer(false);
+          }
+        });
+      }
+
+      // ── BUG 6: Export Board as PDF ──
+      const btnSave = rewire('drawer-btn-save');
+      if (btnSave) {
+        btnSave.addEventListener('click', async () => {
+          if (typeof toggleDrawer === 'function') toggleDrawer(false);
+          if (typeof saveAllPagesAsPDF === 'function') await saveAllPagesAsPDF();
+        });
+      }
+
+      // ── BUG 7: Clear Current Page from drawer ──
+      const btnClear = rewire('drawer-btn-clear');
+      if (btnClear) {
+        btnClear.addEventListener('click', () => {
+          if (typeof clearCurrentPage === 'function') clearCurrentPage();
+          if (typeof toggleDrawer === 'function') toggleDrawer(false);
+        });
+      }
+
+      // ── BUG 8: PDF import local file — spinner never closes ──
+      // Re-wire the file-import change handler to always call hideGlobalLoading after PDF renders
+      const fileImport = document.getElementById('file-import');
+      if (fileImport) {
+        const freshFileImport = fileImport.cloneNode(true);
+        fileImport.parentNode.replaceChild(freshFileImport, fileImport);
+
+        freshFileImport.addEventListener('change', async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const isImage = file.type.startsWith('image/');
+
+          if (isImage) {
+            const dataUrl = URL.createObjectURL(file);
+            if (typeof bgImage !== 'undefined') {
+              bgImage.src = dataUrl;
+              bgImage.style.opacity = '1';
+            }
+            if (typeof offCtx !== 'undefined') offCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+            if (typeof ctx !== 'undefined') ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (typeof createBlankPageData === 'function') {
+              pageAnnotations[currentPageNum] = createBlankPageData();
+              pageAnnotations[currentPageNum].bgImageSrc = dataUrl;
+            }
+            history = [];
+            historyStep = -1;
+            if (typeof saveState === 'function') saveState();
+            if (typeof updateUndoRedoButtons === 'function') updateUndoRedoButtons();
+            if (typeof updatePagesGrid === 'function') updatePagesGrid();
+            const lt = document.getElementById('lesson-title');
+            if (lt) lt.innerText = file.name;
+          } else {
+            // PDF — always pass autoHideLoading = false and call hideGlobalLoading ourselves after
+            const reader = new FileReader();
+            reader.onload = async (ev) => {
+              try {
+                if (typeof handlePDFImport === 'function') {
+                  await handlePDFImport(ev.target.result, false);
+                }
+                const lt = document.getElementById('lesson-title');
+                if (lt) lt.innerText = file.name;
+              } catch (err) {
+                console.error('[PDF Import Error]', err);
+              } finally {
+                // BUG 8 FIX: Always close the spinner regardless of success or failure
+                if (typeof hideGlobalLoading === 'function') hideGlobalLoading();
+              }
+            };
+            reader.readAsArrayBuffer(file);
+          }
+
+          e.target.value = '';
+        });
+
+        // Also re-wire the drawer import button to point to the new freshFileImport
+        const btnImport = rewire('drawer-btn-import');
+        if (btnImport) {
+          btnImport.addEventListener('click', () => {
+            freshFileImport.click();
+            if (typeof toggleDrawer === 'function') toggleDrawer(false);
+          });
+        }
+      }
+
+      // ── BUG 9: Diagnostics button ──
+      const btnDiag = rewire('drawer-btn-diagnostics');
+      if (btnDiag) {
+        btnDiag.addEventListener('click', () => {
+          if (typeof toggleDrawer === 'function') toggleDrawer(false);
+          const diagPanel = document.getElementById('diagnostics-panel');
+          if (diagPanel) {
+            diagPanel.classList.remove('hidden');
+          }
+        });
+      }
+
+      // ── Drawer Lessons button (ensure correct binding) ──
+      const btnLessons = rewire('drawer-btn-lessons');
+      if (btnLessons) {
+        btnLessons.addEventListener('click', () => {
+          if (typeof toggleDrawer === 'function') toggleDrawer(false);
+          if (typeof showTeacherDashboard === 'function') showTeacherDashboard();
+          if (typeof renderTeacherDashboard === 'function') renderTeacherDashboard();
+        });
+      }
+
+      // ── Logout button (ensure correct binding) ──
+      const btnLogout = rewire('drawer-btn-logout');
+      if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+          if (typeof handleLogout === 'function') handleLogout();
+        });
+      }
+
+      console.log('[Indoboard] Menu bar fix block installed — all 9 bugs patched.');
+    })();
 
   </script>
 </body>
