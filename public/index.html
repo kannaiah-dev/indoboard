@@ -10,34 +10,45 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <!-- Tailwind CSS v3 -->
-  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
-
-  <!-- Firebase 9 Compat SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
-
-  <!-- Supabase JS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" crossorigin="anonymous"></script>
-
-  <!-- pdf.js v3.11.174 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- Global Error Logger for Android WebView Debugging -->
   <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    window.addEventListener('error', function(e) {
+      if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+        console.error('[Web Asset Load Error] Failed to load resource:', e.target.src || e.target.href);
+      } else {
+        console.error('[Web Error]', e.message, 'at', e.filename, ':', e.lineno, ':', e.colno, e.error);
+      }
+    }, true);
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('[Promise Rejection]', e.reason);
+    });
+  </script>
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+
+  <!-- Local Firebase 9 Compat SDK -->
+  <script src="assets/js/firebase-app-compat.js"></script>
+  <script src="assets/js/firebase-auth-compat.js"></script>
+  <script src="assets/js/firebase-firestore-compat.js"></script>
+  <script src="assets/js/firebase-storage-compat.js"></script>
+
+  <!-- Local Supabase JS SDK -->
+  <script src="assets/js/supabase.js"></script>
+
+  <!-- Local pdf.js v3.11.174 -->
+  <script src="assets/js/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/js/pdf.worker.min.js';
     pdfjsLib.GlobalWorkerOptions.cMapUrl = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/';
     pdfjsLib.GlobalWorkerOptions.cMapPacked = true;
   </script>
 
-  <!-- jsPDF UMD -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Local jsPDF UMD -->
+  <script src="assets/js/jspdf.umd.min.js"></script>
 
-  <!-- Fonts & Material Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <!-- Local Fonts & Material Icons -->
+  <link rel="stylesheet" href="assets/css/fonts.css">
 
   <script>
     // Tailwind Config Extension
@@ -175,7 +186,7 @@
   </div>
   
   <script>
-    if (location.protocol === 'file:') {
+    if (location.protocol === 'file:' && typeof window.Capacitor === 'undefined' && !navigator.userAgent.includes('Android')) {
       document.getElementById('file-protocol-warning').style.display = 'block';
     }
   </script>
@@ -184,7 +195,7 @@
   <div id="local-mode-banner" class="hidden bg-yellow-100 border-b border-yellow-200 text-yellow-800 text-xs px-4 py-2 flex items-center justify-between z-50">
     <span class="flex items-center gap-1">
       <span class="material-symbols-outlined text-sm">warning</span>
-      <span id="local-banner-text">⚠ Local Mode — open via http:// for Firebase sync.</span>
+      <span id="local-banner-text">⚠ Local Offline Mode. Cloud database sync is inactive.</span>
     </span>
     <button class="font-bold hover:underline" onclick="this.parentElement.remove()">Dismiss</button>
   </div>
@@ -3904,7 +3915,7 @@ service firebase.storage {
       const modal = document.getElementById('admin-lesson-modal');
       if (modal) {
         modal.classList.add('hidden');
-        modal.style.display = 'none';
+        modal.style.removeProperty('display');
       }
       
       replacingLessonId = null;
@@ -3973,6 +3984,7 @@ service firebase.storage {
         setSourceType('supabase');
       }
       modal.classList.remove('hidden');
+      modal.style.removeProperty('display');
     }
 
     // ── Supabase Upload State ────────────────────────────
@@ -7575,6 +7587,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
 
       // Set status banner if local
       if (!firebaseAuthAvailable) {
+        document.getElementById('local-banner-text').innerText = "⚠ Local Offline Mode. Cloud database sync is inactive.";
         document.getElementById('local-mode-banner').classList.remove('hidden');
         emailPasswordEnabled = false;
         return;
@@ -7584,12 +7597,14 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       auth.signInWithEmailAndPassword('__probe_@indoboard.local', 'probe')
         .then(() => {
           emailPasswordEnabled = true;
+          document.getElementById('local-mode-banner').classList.add('hidden');
         })
         .catch(err => {
           const authOkCodes = ['auth/user-not-found', 'auth/invalid-credential', 'auth/wrong-password', 'auth/invalid-login-credentials'];
           if (authOkCodes.includes(err.code)) {
             emailPasswordEnabled = true;
             console.log("Firebase Auth probed. Active and operational.");
+            document.getElementById('local-mode-banner').classList.add('hidden');
           } else {
             emailPasswordEnabled = false;
             console.warn("Probe auth code indicates config error or connection issue", err.code);
@@ -7602,7 +7617,7 @@ if (selectSubject) selectSubject.addEventListener('change', renderSelectedCurric
       const banner = document.getElementById('local-mode-banner');
       const text = document.getElementById('local-banner-text');
       banner.classList.remove('hidden');
-      text.innerText = `⚠ Cloud Sync Blocked (${errCode}). Directing all activities to Local Offline Registry.`;
+      text.innerText = `⚠ Cloud Sync Offline (${errCode}). Directing all activities to Local Offline Registry.`;
     }
 
     // Session cache check
