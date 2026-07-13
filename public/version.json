@@ -1,6 +1,6 @@
 {
-  "versionCode": 3,
-  "versionName": "1.2",
-  "apkUrl": "https://github.com/kannaiah-dev/indoboard/releases/download/v1.2/app-release.apk",
-  "notes": "Fixed stuck download bug"
+  "versionCode": 4,
+  "versionName": "1.3",
+  "apkUrl": "https://github.com/kannaiah-dev/indoboard/releases/download/v1.3/app-release.apk",
+  "notes": "Added on-screen diagnostics for update failures"
 }
