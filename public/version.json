@@ -1,5 +1,5 @@
 {
-  "versionCode": 2,
+  "versionCode": 3,
   "versionName": "1.1",
   "apkUrl": "https://github.com/kannaiah-dev/indoboard/releases/download/v1.1/app-release.apk",
   "notes": "Fixed icon rendering, added update checker"
