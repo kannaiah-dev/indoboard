@@ -1,6 +1,6 @@
 {
   "versionCode": 3,
-  "versionName": "1.1",
-  "apkUrl": "https://github.com/kannaiah-dev/indoboard/releases/download/v1.1/app-release.apk",
-  "notes": "Fixed icon rendering, added update checker"
+  "versionName": "1.2",
+  "apkUrl": "https://github.com/kannaiah-dev/indoboard/releases/download/v1.2/app-release.apk",
+  "notes": "Fixed stuck download bug"
 }
